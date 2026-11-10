@@ -37,11 +37,11 @@ func TestModelRegistration(t *testing.T) {
 	if err := json.Unmarshal(env.Result, &resp); err != nil {
 		t.Fatal(err)
 	}
-	if resp.Provider != "claude" || len(resp.Models) != 4 {
+	if resp.Provider != "claude" || len(resp.Models) != 3 {
 		t.Fatalf("got provider=%q models=%d", resp.Provider, len(resp.Models))
 	}
-	if resp.Models[3].ID != "claude-mythos-5-2" || len(resp.Models[3].Thinking.Levels) != 5 {
-		t.Fatalf("unexpected model: %+v", resp.Models[3])
+	if resp.Models[2].ID != "claude-mythos-5-2" || len(resp.Models[2].Thinking.Levels) != 5 {
+		t.Fatalf("unexpected model: %+v", resp.Models[2])
 	}
 }
 

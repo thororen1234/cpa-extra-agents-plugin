@@ -34,7 +34,7 @@ func pluginRegistration() registration {
 		SchemaVersion: pluginabi.SchemaVersion,
 		Metadata: pluginapi.Metadata{
 			Name:             "mythos",
-			Version:          "0.1.0",
+			Version:          "0.2.0",
 			Author:           "thororen1234",
 			GitHubRepository: "https://github.com/thororen1234/CLIProxyAPI-MythOS-Plugin",
 			ConfigFields:     []pluginapi.ConfigField{},
