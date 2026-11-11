@@ -48,7 +48,14 @@ func handleMethod(method string, request []byte) ([]byte, error) {
 	case pluginabi.MethodPluginRegister, pluginabi.MethodPluginReconfigure:
 		return okEnvelope(pluginRegistration())
 	case pluginabi.MethodModelRegister:
-		return okEnvelope(pluginapi.ModelRegistrationResponse{Provider: "claude", Models: mythosModels()})
+		return okEnvelope(pluginapi.ModelRegistrationResponse{
+			Provider: "claude",
+			Models:   mythosModels(),
+			Registrations: []pluginapi.ProviderModels{
+				{Provider: "claude", Models: mythosModels()},
+				{Provider: "antigravity", Models: antigravityModels()},
+			},
+		})
 	case pluginabi.MethodRequestInterceptAfter:
 		return interceptAfter(request)
 	default:

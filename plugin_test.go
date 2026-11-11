@@ -43,6 +43,21 @@ func TestModelRegistration(t *testing.T) {
 	if resp.Models[2].ID != "claude-mythos-5-2" || len(resp.Models[2].Thinking.Levels) != 5 {
 		t.Fatalf("unexpected model: %+v", resp.Models[2])
 	}
+	var foundAntigravity bool
+	for _, reg := range resp.Registrations {
+		if reg.Provider == "antigravity" {
+			foundAntigravity = true
+			if len(reg.Models) != 21 {
+				t.Fatalf("antigravity models count=%d, want 21", len(reg.Models))
+			}
+			if reg.Models[0].ID != "gemini-4-carbon" || reg.Models[1].ID != "gemini-4-argon" || reg.Models[2].ID != "gemini-3.1-pro-preview" {
+				t.Fatalf("unexpected antigravity models: %+v", reg.Models[:3])
+			}
+		}
+	}
+	if !foundAntigravity {
+		t.Fatal("missing antigravity registration")
+	}
 }
 
 func TestMythos52AddsBetasAndDisplay(t *testing.T) {

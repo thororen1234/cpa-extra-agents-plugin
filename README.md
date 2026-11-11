@@ -2,7 +2,7 @@
 
 Adds exta agents to CLIProxyAPI as a native plugin, so the main source stays untouched.
 
-- `model_registrar`: registers `claude-mythos-5`, `claude-mythos-5-1` and `claude-mythos-5-2` under the `claude` provider. They show up for Claude credentials.
+- `model_registrar`: registers `claude-mythos-5`, `claude-mythos-5-1` and `claude-mythos-5-2` under `claude`, and additional Gemini models under `antigravity`.
 - `request_interceptor`: for Claude requests to Mythos 5.1 and 5.2 adds the `per-turn-control` beta; for 5.2 also the `mid-conversation-system-clear-at` beta, the `thinking-binding-controls` beta (adaptive thinking) and `thinking.display: "updates"` when the caller did not set one. The betas go in the body `betas` array, which the Claude executor lifts into `Anthropic-Beta`.
 
 ## Build
