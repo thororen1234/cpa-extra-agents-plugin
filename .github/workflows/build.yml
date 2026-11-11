@@ -118,23 +118,23 @@ jobs:
           CGO_CFLAGS: ${{ matrix.cflags || (matrix.goarch == 'amd64' && '-march=x86-64') || '' }}
         run: |
           mkdir -p out
-          go build -buildmode=c-shared -o out/mythos.${{ matrix.ext }} .
+          go build -buildmode=c-shared -o out/extraagents.${{ matrix.ext }} .
 
       - name: Package (zip)
         if: matrix.goos != 'windows'
         shell: bash
         working-directory: plugin/out
-        run: zip mythos_${{ steps.ver.outputs.version }}_${{ matrix.name }}.zip mythos.${{ matrix.ext }}
+        run: zip extraagents_${{ steps.ver.outputs.version }}_${{ matrix.name }}.zip extraagents.${{ matrix.ext }}
 
       - name: Package (zip, windows)
         if: matrix.goos == 'windows'
         shell: pwsh
         working-directory: plugin/out
-        run: Compress-Archive -Path mythos.dll -DestinationPath mythos_${{ steps.ver.outputs.version }}_${{ matrix.name }}.zip
+        run: Compress-Archive -Path extraagents.dll -DestinationPath extraagents_${{ steps.ver.outputs.version }}_${{ matrix.name }}.zip
 
       - uses: actions/upload-artifact@v7
         with:
-          name: mythos_${{ matrix.name }}
+          name: extraagents_${{ matrix.name }}
           path: plugin/out/*.zip
           if-no-files-found: error
 

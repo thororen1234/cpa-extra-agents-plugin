@@ -33,10 +33,10 @@ func pluginRegistration() registration {
 	return registration{
 		SchemaVersion: pluginabi.SchemaVersion,
 		Metadata: pluginapi.Metadata{
-			Name:             "mythos",
+			Name:             "Extra Agents",
 			Version:          "0.2.0",
 			Author:           "thororen1234",
-			GitHubRepository: "https://github.com/thororen1234/CLIProxyAPI-MythOS-Plugin",
+			GitHubRepository: "https://github.com/thororen1234/cpa-extra-agents-plugin",
 			ConfigFields:     []pluginapi.ConfigField{},
 		},
 		Capabilities: capabilities{ModelRegistrar: true, RequestInterceptor: true},

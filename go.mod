@@ -1,4 +1,4 @@
-module github.com/thororen1234/CLIProxyAPI-MythOS-Plugin
+module github.com/thororen1234/cpa-extra-agents-plugin
 
 go 1.26.10
 
