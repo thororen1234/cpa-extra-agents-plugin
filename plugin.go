@@ -34,7 +34,7 @@ func pluginRegistration() registration {
 		SchemaVersion: pluginabi.SchemaVersion,
 		Metadata: pluginapi.Metadata{
 			Name:             "Extra Agents",
-			Version:          "0.2.0",
+			Version:          "0.3.0",
 			Author:           "thororen1234",
 			GitHubRepository: "https://github.com/thororen1234/cpa-extra-agents-plugin",
 			ConfigFields:     []pluginapi.ConfigField{},
