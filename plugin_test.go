@@ -47,10 +47,10 @@ func TestModelRegistration(t *testing.T) {
 	for _, reg := range resp.Registrations {
 		if reg.Provider == "antigravity" {
 			foundAntigravity = true
-			if len(reg.Models) != 21 {
-				t.Fatalf("antigravity models count=%d, want 21", len(reg.Models))
+			if len(reg.Models) != 8 {
+				t.Fatalf("antigravity models count=%d, want 8", len(reg.Models))
 			}
-			if reg.Models[0].ID != "gemini-4-carbon" || reg.Models[1].ID != "gemini-4-argon" || reg.Models[2].ID != "gemini-3.1-pro-preview" {
+			if reg.Models[0].ID != "gemini-4-carbon-high" || reg.Models[1].ID != "gemini-4-argon-high" || reg.Models[2].ID != "gemini-4-neon-xhigh" {
 				t.Fatalf("unexpected antigravity models: %+v", reg.Models[:3])
 			}
 		}
